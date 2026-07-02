@@ -1,15 +1,41 @@
 {
+  // Nombre del proyecto
   "name": "devsecops-practica3",
+
+  // Versión actual de la aplicación
   "version": "1.0.0",
+
+  // Descripción del proyecto
   "description": "DevSecOps Practice 3 - Node.js Project",
+
+  // Archivo principal que se ejecutará al iniciar la aplicación
   "main": "index.js",
+
+  // Scripts que pueden ejecutarse mediante npm
   "scripts": {
+
+    // Script utilizado por el pipeline CI/CD para realizar pruebas
     "test": "echo 'Tests passed successfully!'",
+
+    // Script que inicia la aplicación
     "start": "node index.js"
   },
-  "keywords": ["devsecops", "nodejs"],
+
+  // Palabras clave asociadas al proyecto
+  "keywords": [
+    "devsecops",
+    "nodejs"
+  ],
+
+  // Autor del proyecto
   "author": "",
+
+  // Licencia del proyecto
   "license": "ISC",
+
+  // Dependencias necesarias para ejecutar la aplicación
   "dependencies": {},
+
+  // Dependencias utilizadas únicamente durante el desarrollo
   "devDependencies": {}
 }
