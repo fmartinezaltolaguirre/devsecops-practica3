@@ -1,35 +1,50 @@
+# Nombre que aparecerá en la pestaña Actions de GitHub
 name: CI Pipeline
 
+# Define cuándo se ejecutará el workflow
 on:
   push:
+    # Se ejecutará automáticamente cuando se haga un push a la rama main
     branches: [ "main" ]
 
 jobs:
+  # Nombre del trabajo
   build:
+    # Máquina virtual donde se ejecutará el pipeline
     runs-on: ubuntu-latest
 
     steps:
+
+    # Descarga el contenido del repositorio en el runner
     - name: Checkout code
       uses: actions/checkout@v3
 
+    # Instala Node.js versión 18
     - name: Set up Node
       uses: actions/setup-node@v3
       with:
         node-version: '18'
 
+    # Instala las dependencias definidas en package.json
     - name: Install dependencies
       run: npm install
 
+    # Ejecuta las pruebas automáticas de la aplicación
     - name: Run tests
       run: npm test
-      
+
+    # Construye la imagen Docker utilizando el Dockerfile del proyecto
     - name: Build Docker image
       run: docker build -t myapp .
 
+    # Escanea la imagen Docker en busca de vulnerabilidades
+    # Utiliza la herramienta Trivy para detectar problemas de seguridad
     - name: Scan Docker image with Trivy
       uses: aquasecurity/trivy-action@master
       with:
         image-ref: 'myapp'
+
+    # Busca credenciales expuestas, tokens, contraseñas o claves API
+    # dentro del repositorio utilizando Gitleaks
     - name: Run Gitleaks
       uses: gitleaks/gitleaks-action@v2
-        
