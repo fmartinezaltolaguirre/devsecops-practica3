@@ -33,7 +33,7 @@ console.log("DevSecOps Práctica 3 - Node.js Application");
  * -----------------------------------------------------
  */
 
-// AWS_SECRET_ACCESS_KEY=123456789
+AWS_SECRET_ACCESS_KEY=123456789
 
 /**
  * Ejemplo de utilización segura mediante variables de entorno
